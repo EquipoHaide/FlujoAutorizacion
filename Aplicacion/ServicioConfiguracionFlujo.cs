@@ -30,5 +30,11 @@ namespace Flujo_Autorizacion.Aplicacion
 
             return new Respuesta<bool> (true);
         }
+
+
+        public void Consultar(IConsultaFlujo flujo, string subjectId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
