@@ -8,8 +8,8 @@ namespace Flujo_Autorizacion.Dominio
 {
     public interface IServicioConfiguracionFlujo
     {
-        Respuesta<bool> ValidarFlujo(Flujo flujo);
+        Respuesta<bool> ValidarFlujo(IFlujo flujo);
 
-        Respuesta<bool> ValidarPaso(Paso paso);
+        Respuesta<bool> ValidarPaso(IPaso paso);
     }
 }

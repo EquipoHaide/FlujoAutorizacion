@@ -8,16 +8,23 @@ namespace Flujo_Autorizacion.Aplicacion
 {
     public interface IServicioConfiguracionFlujo
     {
-        //Flujo Flujo { get; set; }
-
-        void Consultar(IConsultaFlujo flujo, string subjectId);
-
-        Respuesta<bool> Crear(IFlujo flujo);
-
-        Respuesta<bool> Test(IFlujo flujo);
 
 
-        Respuesta<bool> Modificar(IFlujo flujo, bool esRepetido);
+        Respuesta<bool> Validar(IFlujo flujo);
+
+        public void Consultar(IConsultaFlujo flujo, string subjectId);
+
+
+        public void Crear(IFlujo flujo, string subjectId);
+
+        public void Modificar(IFlujo flujo, string subjectId);
+
+        public void Eliminar(IFlujo flujo, string subjectId);
+
+        public List<ITipoEntePublico> obtenerEntesPublicos(int anioFiscal, string subjectId);
+
+        public List<INivelEmpleado> obtenerNiveles(string subjectId);
+
 
     }
 }

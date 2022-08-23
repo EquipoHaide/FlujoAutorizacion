@@ -8,28 +8,47 @@ using Dominio = Flujo_Autorizacion.Dominio;
 
 namespace Flujo_Autorizacion.Aplicacion
 {
-    public class ServicioConfiguracionFlujo<T> : IServicioConfiguracionFlujo<T> where T : Paso
+    public class ServicioConfiguracionFlujo : IServicioConfiguracionFlujo
     {
 
-        Dominio.ServicioConfiguracionFlujo<T> servicio = new Dominio.ServicioConfiguracionFlujo<T>();
-        Dominio.IServicioConfiguracionFlujo<T> ServicioConfing;
+        Dominio.ServicioConfiguracionFlujo servicio = new Dominio.ServicioConfiguracionFlujo();
+        Dominio.IServicioConfiguracionFlujo ServicioConfing;
 
-        public ServicioConfiguracionFlujo() {
+        public ServicioConfiguracionFlujo()
+        {
 
-            ServicioConfing = (Dominio.IServicioConfiguracionFlujo<T>)servicio;
+            ServicioConfing = servicio;
         }
 
-        /*public Respuesta<bool> Validar(IFlujo flujo)
+        public Respuesta<bool> Validar(IFlujo flujo)
         {
-            
-         
+
+
             var respuesta = ServicioConfing.ValidarFlujo(flujo);
 
             if (!respuesta.Contenido)
                 return new Respuesta<bool>("La información de el flujo esta incomplenta", "TAG");
 
-            return new Respuesta<bool> (true);
-        }*/
+            return new Respuesta<bool>(true);
+        }
+
+
+        public void Crear(IFlujo flujo, string subjectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Modificar(IFlujo flujo, string subjectId)
+        {
+            throw new NotImplementedException();
+
+        }
+
+
+        public void Eliminar(IFlujo flujo, string subjectId)
+        {
+            throw new NotImplementedException();
+        }
 
 
         public void Consultar(IConsultaFlujo flujo, string subjectId)
@@ -37,29 +56,14 @@ namespace Flujo_Autorizacion.Aplicacion
             throw new NotImplementedException();
         }
 
-        public Respuesta<bool> Crear(Flujo<T> flujo)
+        public List<ITipoEntePublico> obtenerEntesPublicos(int anioFiscal, string subjectId)
         {
-
-            var respuesta = ServicioConfing.ValidarFlujo(flujo);
-
-            if (!respuesta.Contenido)
-                return new Respuesta<bool>("La información de el flujo esta incomplenta", "TAG");
-
-            return new Respuesta<bool>(respuesta.Contenido);
+            throw new NotImplementedException();
         }
 
-        public Respuesta<bool> Modificar(Flujo<T> flujo,bool esRepetido)
+        public List<INivelEmpleado> obtenerNiveles(string subjectId)
         {
-            if (esRepetido)
-                return new Respuesta<bool>("El flujo ya existe", "TAG");
-            
-            var respuesta = ServicioConfing.ValidarFlujo(flujo);
-
-            if (!respuesta.Contenido)
-                return new Respuesta<bool>("La información de el flujo esta incomplenta", "TAG");
-
-            return new Respuesta<bool>(respuesta.Contenido);
+            throw new NotImplementedException();
         }
-
     }
 }

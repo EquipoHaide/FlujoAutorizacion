@@ -10,7 +10,7 @@ namespace Flujo_Autorizacion
     {
         static void Main(string[] args)
         {
-           
+           /*
             ServicioConfiguracionFlujo<Paso> servicio = new ServicioConfiguracionFlujo<Paso>();
             IServicioConfiguracionFlujo<Paso> ServicioConfing = servicio;
 
@@ -74,9 +74,9 @@ namespace Flujo_Autorizacion
 
 
             };
-          
+          */
            
-
+            /*
             var respuesta = ServicioConfing.Crear(objFlujo);
 
             if (!respuesta.Contenido)
@@ -88,7 +88,7 @@ namespace Flujo_Autorizacion
                 Console.WriteLine("Todo salio correcto");
             }
             
-
+            */
         
 
         }
