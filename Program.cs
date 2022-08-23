@@ -10,39 +10,40 @@ namespace Flujo_Autorizacion
     {
         static void Main(string[] args)
         {
-            //HEY
-            ServicioConfiguracionFlujo servicio = new ServicioConfiguracionFlujo();
-            IServicioConfiguracionFlujo ServicioConfing = (IServicioConfiguracionFlujo)servicio;
+           
+            ServicioConfiguracionFlujo<Paso> servicio = new ServicioConfiguracionFlujo<Paso>();
+            IServicioConfiguracionFlujo<Paso> ServicioConfing = servicio;
 
             var lista = new List<Paso>();
+            Flujo<Paso> objFlujo = new Flujo<Paso>();
 
             var obj1 = new Paso
             {
-                id = 1,
-                orden = 1,
-                rol = 1,
-                tipoRol = 2
+                Id = 1,
+                Orden = 1,
+                Rol = 1,
+                TipoRol = 2
             };
             var obj2 = new Paso
             {
-                id = 2,
-                orden = 2,
-                rol = 2,
-                tipoRol = 3
+                Id = 2,
+                Orden = 2,
+                Rol = 2,
+                TipoRol = 3
             };
             var obj3 = new Paso
             {
-                id = 2,
-                orden = 3,
-                rol = 2,
-                tipoRol = 3
+                Id = 2,
+                Orden = 3,
+                Rol = 2,
+                TipoRol = 3
             };
             var obj4 = new Paso
             {
-                id = 2,
-                orden = 6,
+                Id = 2,
+                Orden = 6,
               
-                tipoRol = 3
+                TipoRol = 3
             };
 
             lista.Add(obj1);
@@ -51,36 +52,44 @@ namespace Flujo_Autorizacion
             lista.Add(obj4);
 
 
-            var entePublico = new ITipoEntePublico
+            var entePublico = new TipoEntePublico
             {
-                id = 1,
-                nombre = "Prueba"
+                Id = 1,
+                Nombre = "Prueba"
             };
 
             var nEmpleado = new NivelEmpleado
             {
-                id = 1,
-                nivel = 8.2
+                Id = 1,
+                Nivel = 8.2
             };
-
-            var objFlujo = new Flujo {
-                id = 2,
-                tipoEntePublico = entePublico, 
-                nivelEmpleado = nEmpleado,
+            
+            objFlujo = new Flujo<Paso> {
+                Id = 2,
+                TipoEntePublico = entePublico,
+                NivelEmpleado = nEmpleado,
+                TipoFlujo = 1,
+                //Nombre = "Flujo de Autorizacion",
                 Pasos = lista
 
+
             };
+          
+           
 
+            var respuesta = ServicioConfing.Crear(objFlujo);
 
-            var respuesta = ServicioConfing.Validar(objFlujo);
-
-            if (!respuesta.Contenido) {
+            if (!respuesta.Contenido)
+            {
                 Console.WriteLine("Ocurrio un error");
             }
             else
             {
                 Console.WriteLine("Todo salio correcto");
             }
+            
+
+        
 
         }
 

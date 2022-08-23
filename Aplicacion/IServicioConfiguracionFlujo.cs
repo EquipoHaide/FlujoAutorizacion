@@ -10,7 +10,14 @@ namespace Flujo_Autorizacion.Aplicacion
     {
         //Flujo Flujo { get; set; }
 
-        Respuesta<bool> Validar(IFlujo flujo);
+        void Consultar(IConsultaFlujo flujo, string subjectId);
+
+        Respuesta<bool> Crear(IFlujo flujo);
+
+        Respuesta<bool> Test(IFlujo flujo);
+
+
+        Respuesta<bool> Modificar(IFlujo flujo, bool esRepetido);
 
     }
 }

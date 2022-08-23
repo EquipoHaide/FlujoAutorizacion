@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Flujo_Autorizacion.Dominio.Modelo
 {
-    public class Flujo : IFlujo
+    public class Flujo : IFlujo, IModel
     {
         public int Id { get; set; }
 
@@ -11,8 +11,15 @@ namespace Flujo_Autorizacion.Dominio.Modelo
 
         public INivelEmpleado NivelEmpleado {get ; set ;}
 
-        public List<Paso> Pasos { get; set; }
         public int TipoFlujo { get; set; }
-        
+
+        public List<IPaso> Pasos { get; set; }
+
+        public bool IsValid()
+        {
+            return true;
+        }
     }
+
+   
 }

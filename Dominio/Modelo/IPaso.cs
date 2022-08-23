@@ -16,5 +16,7 @@ namespace Flujo_Autorizacion.Dominio.Modelo
         int TipoRol { get; set; }
 
         bool EsFirma { get; set; }
+
+        public bool IsValid();
     }
 }
