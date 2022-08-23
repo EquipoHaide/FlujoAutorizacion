@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flujo_Autorizacion.Dominio.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace Flujo_Autorizacion.Aplicacion
     {
 
 
-        void Autorizar();
+        void Autorizar(IFlujo flujo, ISolicitudCondensada Solicitud, string subjectId);
 
         void Devolver(bool esInicio=false);
 
