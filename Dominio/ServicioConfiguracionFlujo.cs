@@ -12,15 +12,21 @@ namespace Flujo_Autorizacion.Dominio
     {
 
         const string TAG = "Flujo_Autorizacion.Dominio";
-        public Respuesta<bool> ValidarFlujo(IFlujo flujo)
+        public Respuesta<bool> ValidarFlujo(List<IFlujo> flujos)
         {
             //Valida que el objeto no este vacio
-            if (flujo == null)
-                return new Respuesta<bool>("El flujo de autorizacion es requerido", TAG);
+            if (flujos == null || flujos.Count<1)
+                return new Respuesta<bool>("Es requerido al menos un flujo de autorizacion ", TAG);
 
+            if (flujos.Count(f=>f.TipoFlujo==(int)TipoFlujo.Predeterminado)>1)
+                return new Respuesta<bool>("Solo se permite un flujo predeterminado ", TAG);
+
+
+            foreach (var flujo in flujos) { 
+            
 
             if (flujo.TipoEntePublico == null)
-                return new Respuesta<bool>("El ente publico es requerido", "TAG");
+                return new Respuesta<bool>("El tipo ente publico es requerido", "TAG");
 
             if (flujo.TipoFlujo == (int)TipoFlujo.Particular) {
                 if (flujo.NivelEmpleado == null)
@@ -40,11 +46,14 @@ namespace Flujo_Autorizacion.Dominio
                      return new Respuesta<bool>("La información de los pasos esta incompleta", "TAG");
              }
             
-            if (!this.EsRepetido(flujo.Pasos.Cast<Paso>().ToList()))
+            if (this.EsRepetido(flujo.Pasos.Cast<Paso>().ToList()))
                 return new Respuesta<bool>("La lista de pasos del flujo no deben de repetirse", TAG);
 
             if (!this.EsConsecutivo(flujo.Pasos.Cast<Paso>().ToList()))
                 return new Respuesta<bool>("La lista de pasos del flujo debe ser consecutivo.", TAG);
+
+            }
+
 
 
             return new Respuesta<bool>(true);

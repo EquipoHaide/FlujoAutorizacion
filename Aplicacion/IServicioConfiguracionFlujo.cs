@@ -10,21 +10,15 @@ namespace Flujo_Autorizacion.Aplicacion
     {
 
 
-        Respuesta<bool> Validar(IFlujo flujo);
+        Respuesta<bool> Validar(List<IFlujo> flujo);
 
-        public void Consultar(IConsultaFlujo flujo, string subjectId);
+        public void Consultar(IConsulta flujo, string subjectId);
 
 
-        public void Crear(IFlujo flujo, string subjectId);
+        public Respuesta<List<IFlujo>> Crear(List<IFlujo> flujos, string subjectId);
 
         public void Modificar(IFlujo flujo, string subjectId);
 
         public void Eliminar(IFlujo flujo, string subjectId);
-
-        public List<ITipoEntePublico> obtenerEntesPublicos(int anioFiscal, string subjectId);
-
-        public List<INivelEmpleado> obtenerNiveles(string subjectId);
-
-
     }
 }

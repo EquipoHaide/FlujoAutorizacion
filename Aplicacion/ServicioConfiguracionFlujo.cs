@@ -20,22 +20,28 @@ namespace Flujo_Autorizacion.Aplicacion
             ServicioConfing = servicio;
         }
 
-        public Respuesta<bool> Validar(IFlujo flujo)
+        public Respuesta<bool> Validar(List<IFlujo> flujo)
         {
 
 
             var respuesta = ServicioConfing.ValidarFlujo(flujo);
 
             if (!respuesta.Contenido)
-                return new Respuesta<bool>("La información de el flujo esta incomplenta", "TAG");
+                return new Respuesta<bool>(respuesta.Mensaje, "TAG");
 
             return new Respuesta<bool>(true);
         }
 
 
-        public void Crear(IFlujo flujo, string subjectId)
+        public Respuesta<List<IFlujo>> Crear(List<IFlujo> flujos, string subjectId)
         {
-            throw new NotImplementedException();
+           
+            var respuesta = this.Validar(flujos);
+
+            if (respuesta.EsError)
+                return new Respuesta<List<IFlujo>>(respuesta.Mensaje, respuesta.TAG);
+
+            return new Respuesta<List<IFlujo>>(flujos);
         }
 
         public void Modificar(IFlujo flujo, string subjectId)
@@ -51,17 +57,7 @@ namespace Flujo_Autorizacion.Aplicacion
         }
 
 
-        public void Consultar(IConsultaFlujo flujo, string subjectId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<ITipoEntePublico> obtenerEntesPublicos(int anioFiscal, string subjectId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<INivelEmpleado> obtenerNiveles(string subjectId)
+        public void Consultar(IConsulta flujo, string subjectId)
         {
             throw new NotImplementedException();
         }
