@@ -16,7 +16,7 @@ namespace Flujo_Autorizacion.Dominio.Modelo
 
         int IdAutorizacion { get; set; }
 
-        int orden { get; set; }
+        int Orden { get; set; }
 
         int IdRol { get; set; }
 

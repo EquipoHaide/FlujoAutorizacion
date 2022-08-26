@@ -7,7 +7,7 @@ using Flujo_Autorizacion.Dominio.Enumerable;
 
 namespace Flujo_Autorizacion.Aplicacion
 {
-    public class ServicioFlujoAutorizacion : IServicioFlujoAutorizacion
+    public class ServicioFlujoAutorizacion : IServicioFlujoAccionAutorizar
     {
         
 
@@ -19,7 +19,7 @@ namespace Flujo_Autorizacion.Aplicacion
 
             var pasos = flujo.Pasos;
 
-            var pasoAutorizar = pasos.Find(p=>p.Orden == Solicitud.orden);
+            var pasoAutorizar = pasos.Find(p=>p.Orden == Solicitud.Orden);
 
             int ultimoPaso = pasos.OrderByDescending(p => p.Orden).FirstOrDefault().Orden;
             
@@ -30,16 +30,17 @@ namespace Flujo_Autorizacion.Aplicacion
             }
             else
             {
-                var pasoSiguiente = pasos.Find(p => p.Orden == Solicitud.orden+1);
+                var pasoSiguiente = pasos.Find(p => p.Orden == Solicitud.Orden+1);
                 Solicitud.Estado = (int)EstadoSolicitud.Pendiente;
                 Solicitud.IdRol = pasoSiguiente.Rol;
-                Solicitud.orden = pasoSiguiente.Orden;
+                Solicitud.Orden = pasoSiguiente.Orden;
 
             }
 
 
         }
 
+        /*
         public void Cancelar()
         {
             throw new NotImplementedException();
@@ -49,5 +50,7 @@ namespace Flujo_Autorizacion.Aplicacion
         {
             throw new NotImplementedException();
         }
+
+        */
     }
 }

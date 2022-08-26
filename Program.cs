@@ -29,11 +29,15 @@ namespace Flujo_Autorizacion
 
             misFlujos.Add(flujoPredeterminado);
             misFlujos.Add(flujoPredeterminado);
+            //var respuesta = servicioConfigFlujo.Crear(misFlujos, "mi usuario");
 
-            var respuesta = servicioConfigFlujo.Crear(misFlujos, "mi usuario");
+            ServicioFlujoAutorizacionViaticos sfv = new ServicioFlujoAutorizacionViaticos();
+            //sfv.Autorizar(flujoPredeterminado, new SolicitudCondensada(), "mi usuario");
+            
 
-            if (respuesta.EsError)
-                Console.WriteLine(respuesta.Mensaje);
+
+            //if (respuesta.EsError)
+            //    Console.WriteLine(respuesta.Mensaje);
 
 
         }
