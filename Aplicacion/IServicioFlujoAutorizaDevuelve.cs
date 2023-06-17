@@ -1,4 +1,5 @@
-﻿using Flujo_Autorizacion.Dominio.Modelo;
+﻿using Flujo_Autorizacion.Dominio;
+using Flujo_Autorizacion.Dominio.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Text;

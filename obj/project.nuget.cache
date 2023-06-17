@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wzKgvKojEuxylTDFS3LpFDsA7LjASKi1QvfH/ATZisV1+R7SrvyLWe7/oyc1r3IdDtJ8TIQHAdur5QEjoiWYeA==",
+  "dgSpecHash": "tWH4azRu8M+07dtmduJdgK+BtIotIZg+5OXdnfDbK6SWGywYy674mJ6q6BOszWoTVbhIn4c4oXQwRITleYTNUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Israel\\Documents\\DEV\\NET_TFS\\APPS\\FLUJOS DE AUTORIZACION\\FLUJO_AUTORIZACION_API_INICIAL\\FlujoAutorizacion_git\\Flujo-Autorizacion-\\Flujo_Autorizacion.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.18\\microsoft.netcore.app.host.win-x64.3.1.18.nupkg.sha512"
-  ],
+  "projectFilePath": "/Users/haidehaaz/Documents/FlujoAutorizacion /Flujo_Autorizacion.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Flujo_Autorizacion
 {
-    public class ServicioFlujoAutorizacionViaticos: ServicioFlujoAccionDevolver
+    public class ServicioFlujoAutorizacionViaticos: ServicioFlujoAutorizacion 
     {
         public void AutorizacionViaticos() {
 
@@ -26,7 +26,8 @@ namespace Flujo_Autorizacion
         
         }
 
-
+        
+     
         public void Devolver() {
 
             this.Devolver();

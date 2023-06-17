@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Flujo_Autorizacion.Dominio.Enumerable;
+using Flujo_Autorizacion.Dominio;
 
 namespace Flujo_Autorizacion.Aplicacion
 {
